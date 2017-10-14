@@ -1,0 +1,333 @@
+/* line 17, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 3, ../sass/style.scss */
+html {
+  box-sizing: border-box;
+}
+
+/* line 6, ../sass/style.scss */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 11, ../sass/style.scss */
+body {
+  background: #2e5174;
+  transition-duration: .2s;
+  color: #333;
+  font-family: 'Roboto';
+  font-size: 14px;
+}
+
+@media (max-width: 700px) {
+  /* line 20, ../sass/style.scss */
+  body {
+    background: #FFF !important;
+  }
+
+  /* line 23, ../sass/style.scss */
+  .container {
+    margin: 0 !important;
+    padding: 20px !important;
+    min-width: 360px !important;
+    min-height: 640px;
+  }
+
+  /* line 30, ../sass/style.scss */
+  .input-row {
+    font-size: 16px !important;
+  }
+  /* line 33, ../sass/style.scss */
+  .input-row .input {
+    font-weight: 600 !important;
+  }
+  /* line 36, ../sass/style.scss */
+  .input-row .input::-webkit-input-placeholder {
+    font-weight: 600 !important;
+  }
+
+  /* line 42, ../sass/style.scss */
+  .question-container {
+    height: 190px !important;
+  }
+  /* line 45, ../sass/style.scss */
+  .question-container .question-txt {
+    font-size: 20px !important;
+    white-space: nowrap !important;
+  }
+
+  /* line 51, ../sass/style.scss */
+  #overlay-keypad {
+    display: block !important;
+  }
+}
+/* line 57, ../sass/style.scss */
+.container {
+  max-width: 700px;
+  background: #FFF;
+  padding: 30px;
+  margin: 40px auto;
+}
+/* line 63, ../sass/style.scss */
+.container .navigation {
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* line 67, ../sass/style.scss */
+.container .navigation a {
+  font-size: 20px;
+  text-decoration: none;
+  color: #333;
+  padding: 3px;
+}
+/* line 73, ../sass/style.scss */
+.container .navigation a.disabled {
+  opacity: .2;
+}
+/* line 79, ../sass/style.scss */
+.container .input-row {
+  font-size: 24px;
+  text-align: center;
+  display: flex;
+}
+/* line 83, ../sass/style.scss */
+.container .input-row .input {
+  display: inline-block;
+  width: 120px;
+  margin: 0 auto;
+  font-size: inherit;
+  padding: 10px;
+  font-weight: 100;
+  border: 0;
+  border: 2px solid #bdbdbd;
+}
+/* line 93, ../sass/style.scss */
+.container .input-row .input::-webkit-input-placeholder {
+  color: #7D7D7D;
+}
+/* line 98, ../sass/style.scss */
+.container .input-row .action {
+  display: inline-block;
+  flex: 1;
+  padding: 0 20px;
+  font-size: inherit;
+  text-decoration: none;
+  color: #ADADAD;
+}
+/* line 107, ../sass/style.scss */
+.container .input-row .input-left, .container .input-row .input-right {
+  display: inline-block;
+  flex: 1;
+  align-self: center;
+  position: relative;
+}
+/* line 114, ../sass/style.scss */
+.container .input-row .input-left {
+  text-align: right;
+}
+/* line 117, ../sass/style.scss */
+.container .input-row .input-right {
+  text-align: left;
+}
+/* line 121, ../sass/style.scss */
+.container .input-row #showAnswerChk {
+  position: absolute;
+  pointer-events: none;
+  top: -1000000px;
+}
+/* line 126, ../sass/style.scss */
+.container .input-row .showAnswerLabel {
+  position: absolute;
+  top: -12px;
+  bottom: -12px;
+  width: 25px;
+  left: -27px;
+  display: inline-block;
+  opacity: 0;
+  cursor: pointer;
+}
+/* line 138, ../sass/style.scss */
+.container .question-container {
+  height: 250px;
+  position: relative;
+  margin: 30px auto;
+  overflow: hidden;
+  border: 1px solid #cfcfcf;
+  border-left: 0;
+  border-right: 0;
+  background: no-repeat center;
+  background-size: contain;
+}
+/* line 149, ../sass/style.scss */
+.container .question-container .question-txt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: inline-block;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.4);
+  text-shadow: 0 0 3px #FFF;
+  color: #000;
+  font-size: 30px;
+}
+/* line 163, ../sass/style.scss */
+.container .question-list-container {
+  overflow: hidden;
+  margin-top: 20px;
+  min-height: 150px;
+}
+/* line 168, ../sass/style.scss */
+.container .question-list-container .question-list-item {
+  display: block;
+  padding: 2px;
+}
+/* line 172, ../sass/style.scss */
+.container .question-list-container .question-list-item.halfway {
+  background: #ffea5e;
+}
+/* line 175, ../sass/style.scss */
+.container .question-list-container .question-list-item.complete {
+  background: #98e898;
+}
+/* line 179, ../sass/style.scss */
+.container .question-list-container .question-list-item.current {
+  font-weight: bold;
+}
+
+/* line 192, ../sass/style.scss */
+.select-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  min-width: 50px;
+}
+/* line 198, ../sass/style.scss */
+.select-container span {
+  position: static;
+}
+/* line 202, ../sass/style.scss */
+.select-container select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  opacity: 0;
+}
+
+/* line 213, ../sass/style.scss */
+#overlay-keypad {
+  position: fixed;
+  top: 60%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #F1F1F1;
+  transform: translateY(110%);
+  transition-duration: .3s;
+  display: none;
+  border-top: 1px solid #D1D1D1;
+  -webkit-user-select: none;
+}
+/* line 226, ../sass/style.scss */
+#overlay-keypad.visible {
+  transform: none;
+}
+/* line 230, ../sass/style.scss */
+#overlay-keypad .num-row {
+  height: 25%;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+/* line 236, ../sass/style.scss */
+#overlay-keypad .num-row .num {
+  height: 100%;
+  width: 25%;
+  display: inline-block;
+  text-align: center;
+  font-size: 26px;
+  color: #555;
+  transition-duration: .1s;
+}
+/* line 245, ../sass/style.scss */
+#overlay-keypad .num-row .num.keypress {
+  background: #D4D4D4;
+}
+/* line 249, ../sass/style.scss */
+#overlay-keypad .num-row .num:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+/* line 261, ../sass/style.scss */
+select option:empty {
+  display: none;
+}

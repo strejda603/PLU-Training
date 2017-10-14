@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html ng-app="pluapp">
+<head>
+	<title>PLU Trénink</title>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" sizes="192x192" href="favicon-192x192.png">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="MainCtrl">
+
+	<div id="appContainer" class="container">
+
+		<div class="navigation">
+			<a href="#" ng-click="goToPreviousSection()" class="{{ isFirstSection() ? 'disabled' : '' }}">&lt;</a>
+			<div class="select-container">
+				<span class="label">část {{ parseInt(settings.currentSection)+1 }}</span>
+				<select ng-model="settings.currentSection">
+					<option ng-repeat="n in settings.pluList track by $index" value="{{$index}}">část {{ $index+1 }}</option>
+				</select>
+			</div>
+			<a href="#" ng-click="goToNextSection()" class="{{ isLastSection() ? 'disabled' : '' }}">&gt;</a>
+
+			<input type="checkbox" ng-checked="settings.randomiseSection" ng-click="settings.randomiseSection = !settings.randomiseSection" id="randomiseSectionChk">
+			<label for="randomiseSectionChk">Náhodná část</label>
+			<input type="checkbox" ng-checked="settings.randomisePLU" ng-click="settings.randomisePLU = !settings.randomisePLU" id="randomisePLUChk">
+			<label for="randomisePLUChk">Náhodná PLU</label>
+		</div>
+
+		<div class="input-row">
+			<div class="input-left">
+				<a ng-click="respond('wrong')" href="#" class="action wrong">ŠPATNĚ</a>
+			</div>
+			<input class="input" id="entry" type="text" placeholder="{{ settings.showAnswer || settings.showAnswerOnce ? settings.currentPLU : '' }}" ng-readonly="settings.isMobile" maxlength="5">
+			<div class="input-right">
+				<a ng-click="respond('ok')" href="#" class="action right">DOBŘE</a>
+				<input type="checkbox" ng-model="settings.showAnswer" id="showAnswerChk">
+				<label class="showAnswerLabel" for="showAnswerChk"></label>
+			</div>
+		</div>
+
+		<div class="question-container" style="{{ !settings.showImage || 'background-image: url(img/plu/'+ settings.currentPLU +'.jpg);' }}">
+			<p ng-if="settings.showText" class="question-txt" ng-bind="settings.pluList[settings.currentSection][settings.currentPLU]"></p>
+		</div>
+
+		<p> Zobrazit obrázek:
+			<input type="radio" ng-model="settings.showImageOpt" value="yes" id="showImageAlwChk">
+			<label for="showImageAlwChk">Ano</label>
+			<input type="radio" ng-model="settings.showImageOpt" value="rand" id="showImageRandChk">
+			<label for="showImageRandChk">Náhodně</label>
+			<input type="radio" ng-model="settings.showImageOpt" value="no" id="ShowImageNevChk">
+			<label for="ShowImageNevChk">Ne</label>
+		</p>
+		<p> Zobrazit text:
+			<input type="radio" ng-model="settings.showTextOpt" value="yes" id="showTextAlwChk">
+			<label for="showTextAlwChk">Ano</label>
+			<input type="radio" ng-model="settings.showTextOpt" value="rand" id="showTextRandChk">
+			<label for="showTextRandChk">Náhodně</label>
+			<input type="radio" ng-model="settings.showTextOpt" value="no" id="ShowTextNevChk">
+			<label for="ShowTextNevChk">Ne</label>
+		</p>
+
+		<div class="question-list-container">
+			<p class="question-list-item {{ ($parent.settings.learned[key] > settings.learnPoints.half-1 && $parent.settings.learned[key] < settings.learnPoints.full) ? 'halfway' : '';}} {{ $parent.settings.learned[key] > settings.learnPoints.full-1 ? 'complete' : ''; }} {{ $parent.settings.currentPLU == key ? 'current' : '' }}" ng-repeat="(key, value) in settings.pluList[settings.currentSection]">
+				<input type="checkbox" ng-checked="!$parent.settings.learnBlacklist.includes(key)" ng-click="$parent.toggleBlacklistPLU(key)">
+				{{ key +' '+ value }} {{ $parent.settings.learned[key] }}
+			</p>
+
+			<br>
+			<p><a class="reset-all" ng-click="clearLearnedBySession()" href="#">Resetovat vše</a> &nbsp; <a href="#" onclick="document.getElementById('appContainer').webkitRequestFullScreen();">Na celou obrazovku</a></p>
+		</div>
+	</div>
+
+	<div id="overlay-keypad">
+		<div class="num-row">
+			<div class="num" data-send="7">7</div>
+			<div class="num" data-send="8">8</div>
+			<div class="num" data-send="9">9</div>
+		</div>
+		<div class="num-row">
+			<div class="num" data-send="4">4</div>
+			<div class="num" data-send="5">5</div>
+			<div class="num" data-send="6">6</div>
+		</div>
+		<div class="num-row">
+			<div class="num" data-send="1">1</div>
+			<div class="num" data-send="2">2</div>
+			<div class="num" data-send="3">3</div>
+		</div>
+		<div class="num-row">
+			<div class="num" data-send="0">0</div>
+			<div class="num" data-send="del">DEL</div>
+			<div class="num" data-send="ok">OK</div>
+		</div>
+	</div>
+	<div id="keypad-spaceholder"></div>
+
+	<script src="js/angular.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
